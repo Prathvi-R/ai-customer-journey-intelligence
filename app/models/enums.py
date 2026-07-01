@@ -22,13 +22,27 @@ class ArtifactType(str, Enum):
 
 class PageType(str, Enum):
     HOME = "home"
+
     ABOUT = "about"
+
     SERVICE = "service"
+
     PROJECT = "project"
+
     PRODUCT = "product"
+
     BLOG = "blog"
+
     CONTACT = "contact"
+
     CAREER = "career"
+
+    FAQ = "faq"
+
+    GALLERY = "gallery"
+
+    LEGAL = "legal"
+
     OTHER = "other"
 
 class SourceType(str, Enum):

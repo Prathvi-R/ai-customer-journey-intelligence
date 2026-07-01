@@ -26,9 +26,16 @@ async def main():
     print("Paragraphs  :", len(page_data.paragraphs))
     print("Buttons     :", len(page_data.buttons))
     print("Forms       :", len(page_data.forms))
-    print("Links       :", len(page_data.links))
+    print("Links       :", len(page_data.internal_links))
     print("Images      :", len(page_data.images))
     print("=" * 60)
+    print("Canonical :", page_data.canonical)
+    print("Language  :", page_data.language)
+    print("Schema    :", page_data.schema_types)
+    print("Internal  :", len(page_data.internal_links))
+    print("External  :", len(page_data.external_links))
+    print("Lists     :", len(page_data.lists))
+    print("Tables    :", len(page_data.tables))
 
     await browser_service.close()
 

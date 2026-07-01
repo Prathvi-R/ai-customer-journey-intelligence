@@ -1,0 +1,672 @@
+{
+    "created_at": "2026-07-01T12:29:35.888402",
+    "base_url": "https://shrreejisharan.com",
+    "domain": "shrreejisharan.com",
+    "schema_version": "1.0.0",
+    "crawl_timestamp": "2026-07-01T12:29:35.888480",
+    "pages": [
+        {
+            "created_at": "2026-07-01T12:29:40.535666",
+            "url": "https://shrreejisharan.com/",
+            "title": "Shrreeji Sharan Group of Companies | Building Your Dream Home",
+            "description": "",
+            "page_type": "home",
+            "language": "en",
+            "depth": 0,
+            "status_code": null,
+            "response_time_ms": null,
+            "content_hash": null,
+            "canonical": "",
+            "keywords": "",
+            "robots": "",
+            "favicon": "",
+            "og_title": "Shrreeji Sharan Group of Companies | Building Your Dream Home",
+            "og_description": "",
+            "og_image": "/images/default.svg",
+            "og_url": "",
+            "twitter_card": "",
+            "twitter_title": "",
+            "twitter_description": "",
+            "twitter_image": "",
+            "headings": [
+                "Crafting Timeless Spaces",
+                "30 + Years of Legacy 2000 + Families One Vision",
+                "Designed for Generations",
+                "30 +",
+                "Years of Legacy",
+                "17",
+                "Projects Delivered",
+                "10",
+                "Projects in Progress",
+                "40 +",
+                "Lakh+ Sq. Ft. in Development",
+                "Discover Our Creations",
+                "Daivi Eterneety",
+                "Shreeji Aikyam",
+                "Shreeji Tapovan",
+                "Shreeji 205 Skyrise",
+                "Read Our Blogs",
+                "Rakshabandhan 2025 in Mumbai: A Heartwarming Celebration with the Rescue Foundation",
+                "From Soil to Soul: A Day of Green Action with Shrreeji Sharan",
+                "Prioritizing Wellness: A Day of Health & Learning at Shrreeji Sharan",
+                "Age has No Bar, Talent All-Stars: Senior Citizens Steal the Show at the Shrreeji Sharan Karaoke Evening",
+                "Shrreeji Sharan Pays Tribute to the Victims of the Pahalgam Attack",
+                "COVID-19 facility receives a freshly constructed 19-storey skyscraper from a Mumbai builder."
+            ],
+            "paragraphs": [
+                "Overview",
+                "With over 3 decades of experience and a commitment to excellence.",
+                "Our Commitment",
+                "Every Shrreeji Sharan community is designed to nurture connections, foster belonging, and celebrate life every day. Because true luxury is in living joyfully, where celebrations come home",
+                "CURRENT PROJECTS",
+                "Explore our portfolio of iconic developments in Mumbai:",
+                "Daivi Eterneety rises as Borivali’s most stylish and luxurious residential landmark.",
+                "Shreeji Aikyam blends luxury, comfort, and modern living into a truly elevated lifestyle.",
+                "At Tapovan, life unfolds in harmony with nature and spiritual calm.",
+                "Welcome to Sky-Class living, where thoughtfully designed homes blend luxury, comfort, and modern elegance.",
+                "Blogs",
+                "2025-09-22",
+                "Under the leadership and vision of Director Mr. Mehul Sanghavi, Shrreeji Sharan celebrated Rakshabandhan 2025 with over 100 girls from the",
+                "2025-08-11",
+                "On World Environment Day 2025, Shrreeji Sharan came together not just as a company, but as a community deeply committed to nurturing",
+                "2025-05-08",
+                "Shrreeji Sharan recently hosted a wellness fitness checkup camp aimed at offering free eye and health screenings to all employees.",
+                "2025-04-15",
+                "Shrreeji Sharan proudly presented the Poinsur Gymkhana Senior Citizen Pariwar Karaoke Competition an unforgettable evening filled with music, joy",
+                "2025-04-06",
+                "In a solemn gesture of respect, the Shrreeji Sharan team observed two minutes of silence across all sites and offices in remembrance of those who",
+                "2022-11-16",
+                "COVID-19 facility receives a freshly constructed 19-storey skyscraper from a Mumbai builder.  A Mumbai-based real estate developer,",
+                "This website is meant only for information purposes. It should not be considered/ claimed as an official site. View Privacy Policy",
+                "Copyright © 2026 All rights reserved Disclaimer *T&C Apply | Designed & Developed by Realatte"
+            ],
+            "buttons": [
+                "Menu",
+                "Enquire Now",
+                "Know More",
+                "Know More",
+                "Know More",
+                "Know More",
+                "Know More",
+                "Know More",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "forms": [],
+            "images": [
+                "/images/Home/icon/Shree Ji Sharan.svg",
+                "/images/Home/icon/Shree Ji Sharan.svg",
+                "/images/Home/icon/Shree Ji Sharan.svg",
+                "/_next/image?url=%2Fimages%2Fhome-page-overviesw.png&w=3840&q=75",
+                "/_next/image?url=%2Fimages%2FHome%2Fcommitment1.png&w=1920&q=75",
+                "/_next/image?url=%2Fimages%2FHome%2Fcommitment2.png&w=750&q=75",
+                "/_next/image?url=%2Fimages%2FHome%2Fstats-building.png&w=828&q=75",
+                "/images/Home/curved-lines.svg",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2Fdaivi_1_28ef0c3d9b.png&w=1080&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2FAikyam_2_c66d39e4ee.png&w=1080&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2Ftapovan_2_976410a687.png&w=1080&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2FSky_Rise_2_ede7b59e7d.png&w=1080&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2FIMG_4232_scaled_ra3lliakkr4dklsjygnlj1s03s56wwt0wpch14ityo_1_1_2a245eda7b.png&w=1080&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2FIMG_20250605_WA_0067_scaled_r76vtj3dwjnkxv0gl7ouuhsk537ibfntks2i0q0wts_1_36a13a348d.png&w=1080&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2FIMG_2817_scaled_r6kotlb5cxzpb68kscchzh27zj000ltiki3faglq9c_1_9a823b29c5.png&w=1080&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2F285_A7599_edited_r63aktuhkbwsnprid8ts2kdxzb9lf0o9mabpf7y4vk_1_b7b294de5e.png&w=1080&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2FWhats_App_Image_2025_05_09_at_5_47_17_PM_1_scaled_r5jzyc0guxwjl73dqjsshd9cfj3kqnmcjmjlcnbtbk_1_c04224d3e7.png&w=1080&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2FEconomic_Times_scaled_qhfbqn7xwz029lyd7fvaizxusigu88w6sirr2pqy40_1_5c114db108.png&w=1080&q=75",
+                "/_next/image?url=%2Fimages%2Fabout%2Ffooter-image.png&w=3840&q=75",
+                "/images/Home/icon/Shree Ji Sharan.svg"
+            ],
+            "lists": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "tables": [],
+            "internal_links": [
+                "https://shrreejisharan.com/",
+                "https://shrreejisharan.com/about-us",
+                "https://shrreejisharan.com/blogs",
+                "https://shrreejisharan.com/blogs/age-has-no-bar-talent-all-stars-senior-citizens-steal-the-show-at-the-shrreeji-sharan-karaoke-evening",
+                "https://shrreejisharan.com/blogs/covid-19-facility-receives-a-freshly-constructed-19-storey-skyscraper-from-a-mumbai-builder",
+                "https://shrreejisharan.com/blogs/from-soil-to-soul-a-day-of-green-action-with-shrreeji-sharan",
+                "https://shrreejisharan.com/blogs/prioritizing-wellness-a-day-of-health-and-learning-at-shrreeji-sharan",
+                "https://shrreejisharan.com/blogs/rakshabandhan-2025-in-mumbai-a-heartwarming-celebration-with-the-rescue-foundation",
+                "https://shrreejisharan.com/blogs/shrreeji-sharan-pays-tribute-to-the-victims-of-the-pahalgam-attack",
+                "https://shrreejisharan.com/careers",
+                "https://shrreejisharan.com/channel-partner",
+                "https://shrreejisharan.com/contact-us",
+                "https://shrreejisharan.com/emi-calculator",
+                "https://shrreejisharan.com/projects",
+                "https://shrreejisharan.com/projects/daivi-eterneety",
+                "https://shrreejisharan.com/projects/shreeji-aikyam",
+                "https://shrreejisharan.com/projects/shrreeji-skyrise",
+                "https://shrreejisharan.com/projects/shrreeji-tapovan"
+            ],
+            "external_links": [
+                "https://maps.app.goo.gl/6fMDhPqE13bhFTmb8",
+                "https://realatte.com",
+                "https://www.facebook.com/ShrreejiSharanGroupofCompanies",
+                "https://www.instagram.com/shrreejisharan/",
+                "https://www.linkedin.com/company/shrreeji-sharan-group-of-companies/",
+                "https://www.youtube.com/@shrreejisharan",
+                "https://x.com/shrreejisharan"
+            ],
+            "mailto_links": [
+                "mailto:info@shreejisharan.com"
+            ],
+            "telephone_links": [],
+            "download_links": [],
+            "anchor_links": [],
+            "json_ld": [],
+            "schema_types": []
+        },
+        {
+            "created_at": "2026-07-01T12:29:40.851430",
+            "url": "https://shrreejisharan.com/about-us",
+            "title": "About Shrreeji Sharan Group of Companies",
+            "description": "",
+            "page_type": "about",
+            "language": "en",
+            "depth": 0,
+            "status_code": null,
+            "response_time_ms": null,
+            "content_hash": null,
+            "canonical": "",
+            "keywords": "",
+            "robots": "",
+            "favicon": "",
+            "og_title": "About Shrreeji Sharan Group of Companies",
+            "og_description": "",
+            "og_image": "/images/default.svg",
+            "og_url": "",
+            "twitter_card": "",
+            "twitter_title": "",
+            "twitter_description": "",
+            "twitter_image": "",
+            "headings": [
+                "Empowering the future through innovation & unique experiences",
+                "vision",
+                "mission",
+                "Our Core Values",
+                "01",
+                "Entrepreneurship",
+                "02",
+                "Passion",
+                "03",
+                "Design Excellence",
+                "04",
+                "Integrity",
+                ""
+            ],
+            "paragraphs": [
+                "About Us",
+                "About",
+                "We believe in continuously evolving with new real estate trends and exploring new ways of living. We deliver to our customers the joy of living, the serenity of space and the place to interact with their families. A place for their children to grow. A place for them to rest and relax. A dream home with a beautiful environment, futuristic architecture, the finest quality and unique designs.",
+                "To redefine the western suburb’s skyline over the next decade with landmark developments that blend innovation, sustainability, and soulful living.",
+                "To design thoughtful, community-driven spaces that nurture belonging for families across generations.",
+                "Values",
+                "We create value for our clients by employing a flexible approach to each opportunity, taking calculated risks, and bringing together the resources necessary to successfully achieve their objectives.",
+                "We approach everything we do with energy, enthusiasm and a sincere desire to exceed expectations.",
+                "Fabricating thoughtful designs that ensure maximum space & clutter-free living experience.",
+                "Ensuring assets of trust, honesty & transparency in all our activities & relationships.",
+                "This website is meant only for information purposes. It should not be considered/ claimed as an official site. View Privacy Policy",
+                "Copyright © 2026 All rights reserved Disclaimer *T&C Apply | Designed & Developed by Realatte"
+            ],
+            "buttons": [
+                "Menu",
+                "Enquire Now"
+            ],
+            "forms": [],
+            "images": [
+                "/images/Home/icon/Shree Ji Sharan.svg",
+                "/images/Home/icon/Shree Ji Sharan.svg",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2Fbusiness_people_happy_team_office_with_portrait_professional_proud_reputation_improvement_men_women_together_corporate_sale_representative_group_job_confidence_3_a4b5a00ee8.jpg&w=3840&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2Fbusiness_people_happy_team_office_with_portrait_professional_proud_reputation_improvement_men_women_together_corporate_sale_representative_group_job_confidence_6_8a523d1c09.jpg&w=1080&q=75",
+                "/images/about/vision.svg",
+                "/images/about/mission.svg",
+                "/_next/image?url=%2Fimages%2Fabout%2Fbuilding-image-banner.png&w=3840&q=75",
+                "/_next/image?url=%2Fimages%2Fabout%2Ffooter-image.png&w=3840&q=75",
+                "/images/Home/icon/Shree Ji Sharan.svg"
+            ],
+            "lists": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "tables": [],
+            "internal_links": [
+                "https://shrreejisharan.com/",
+                "https://shrreejisharan.com/about-us",
+                "https://shrreejisharan.com/blogs",
+                "https://shrreejisharan.com/careers",
+                "https://shrreejisharan.com/channel-partner",
+                "https://shrreejisharan.com/contact-us",
+                "https://shrreejisharan.com/emi-calculator",
+                "https://shrreejisharan.com/projects"
+            ],
+            "external_links": [
+                "https://maps.app.goo.gl/6fMDhPqE13bhFTmb8",
+                "https://realatte.com",
+                "https://www.facebook.com/ShrreejiSharanGroupofCompanies",
+                "https://www.instagram.com/shrreejisharan/",
+                "https://www.linkedin.com/company/shrreeji-sharan-group-of-companies/",
+                "https://www.youtube.com/@shrreejisharan",
+                "https://x.com/shrreejisharan"
+            ],
+            "mailto_links": [
+                "mailto:info@shreejisharan.com"
+            ],
+            "telephone_links": [],
+            "download_links": [],
+            "anchor_links": [],
+            "json_ld": [],
+            "schema_types": []
+        },
+        {
+            "created_at": "2026-07-01T12:29:41.134992",
+            "url": "https://shrreejisharan.com/blogs",
+            "title": "Blogs | Shrreeji Sharan Group of Companies",
+            "description": "",
+            "page_type": "blog",
+            "language": "en",
+            "depth": 0,
+            "status_code": null,
+            "response_time_ms": null,
+            "content_hash": null,
+            "canonical": "",
+            "keywords": "",
+            "robots": "",
+            "favicon": "",
+            "og_title": "Blogs | Shrreeji Sharan Group of Companies",
+            "og_description": "",
+            "og_image": "/images/default.svg",
+            "og_url": "",
+            "twitter_card": "",
+            "twitter_title": "",
+            "twitter_description": "",
+            "twitter_image": "",
+            "headings": [
+                "Explore stories, insights, and updates that reflect our journey of building communities, shaping lifestyles, and redefining modern living in Mumbai’s suburbs.",
+                "Rakshabandhan 2025 in Mumbai: A Heartwarming Celebration with the Rescue Foundation",
+                "From Soil to Soul: A Day of Green Action with Shrreeji Sharan",
+                "Prioritizing Wellness: A Day of Health & Learning at Shrreeji Sharan"
+            ],
+            "paragraphs": [
+                "Our Blogs",
+                "blogs",
+                "2025-09-22",
+                "Under the leadership and vision of Director Mr. Mehul Sanghavi, Shrreeji Sharan celebrated Rakshabandhan 2025 with over 100 girls from the",
+                "2025-08-11",
+                "On World Environment Day 2025, Shrreeji Sharan came together not just as a company, but as a community deeply committed to nurturing",
+                "2025-05-08",
+                "Shrreeji Sharan recently hosted a wellness fitness checkup camp aimed at offering free eye and health screenings to all employees.",
+                "This website is meant only for information purposes. It should not be considered/ claimed as an official site. View Privacy Policy",
+                "Copyright © 2026 All rights reserved Disclaimer *T&C Apply | Designed & Developed by Realatte"
+            ],
+            "buttons": [
+                "Menu",
+                "Enquire Now"
+            ],
+            "forms": [],
+            "images": [
+                "/images/Home/icon/Shree Ji Sharan.svg",
+                "/images/Home/icon/Shree Ji Sharan.svg",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2Fbanner_548320abcb.jpg&w=3840&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2Fbanner_mob_90788b77d2.jpg&w=1080&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2FIMG_4232_scaled_ra3lliakkr4dklsjygnlj1s03s56wwt0wpch14ityo_1_1_2a245eda7b.png&w=1080&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2FIMG_20250605_WA_0067_scaled_r76vtj3dwjnkxv0gl7ouuhsk537ibfntks2i0q0wts_1_36a13a348d.png&w=1080&q=75",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2FIMG_2817_scaled_r6kotlb5cxzpb68kscchzh27zj000ltiki3faglq9c_1_9a823b29c5.png&w=1080&q=75",
+                "/_next/image?url=%2Fimages%2Fabout%2Ffooter-image.png&w=3840&q=75",
+                "/images/Home/icon/Shree Ji Sharan.svg"
+            ],
+            "lists": [
+                [
+                    "«",
+                    "1",
+                    "2",
+                    "3",
+                    "»"
+                ],
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "tables": [],
+            "internal_links": [
+                "https://shrreejisharan.com/",
+                "https://shrreejisharan.com/about-us",
+                "https://shrreejisharan.com/blogs",
+                "https://shrreejisharan.com/blogs/from-soil-to-soul-a-day-of-green-action-with-shrreeji-sharan",
+                "https://shrreejisharan.com/blogs/prioritizing-wellness-a-day-of-health-and-learning-at-shrreeji-sharan",
+                "https://shrreejisharan.com/blogs/rakshabandhan-2025-in-mumbai-a-heartwarming-celebration-with-the-rescue-foundation",
+                "https://shrreejisharan.com/careers",
+                "https://shrreejisharan.com/channel-partner",
+                "https://shrreejisharan.com/contact-us",
+                "https://shrreejisharan.com/emi-calculator",
+                "https://shrreejisharan.com/projects"
+            ],
+            "external_links": [
+                "https://maps.app.goo.gl/6fMDhPqE13bhFTmb8",
+                "https://realatte.com",
+                "https://www.facebook.com/ShrreejiSharanGroupofCompanies",
+                "https://www.instagram.com/shrreejisharan/",
+                "https://www.linkedin.com/company/shrreeji-sharan-group-of-companies/",
+                "https://www.youtube.com/@shrreejisharan",
+                "https://x.com/shrreejisharan"
+            ],
+            "mailto_links": [
+                "mailto:info@shreejisharan.com"
+            ],
+            "telephone_links": [],
+            "download_links": [],
+            "anchor_links": [
+                "#"
+            ],
+            "json_ld": [],
+            "schema_types": []
+        },
+        {
+            "created_at": "2026-07-01T12:29:41.407628",
+            "url": "https://shrreejisharan.com/blogs/age-has-no-bar-talent-all-stars-senior-citizens-steal-the-show-at-the-shrreeji-sharan-karaoke-evening",
+            "title": "",
+            "description": "",
+            "page_type": "blog",
+            "language": "en",
+            "depth": 0,
+            "status_code": null,
+            "response_time_ms": null,
+            "content_hash": null,
+            "canonical": "",
+            "keywords": "",
+            "robots": "",
+            "favicon": "",
+            "og_title": "",
+            "og_description": "",
+            "og_image": "/images/default.svg",
+            "og_url": "",
+            "twitter_card": "",
+            "twitter_title": "",
+            "twitter_description": "",
+            "twitter_image": "",
+            "headings": [
+                "Age has No Bar, Talent All-Stars: Senior Citizens Steal the Show at the Shrreeji Sharan Karaoke Evening"
+            ],
+            "paragraphs": [
+                "Shrreeji Sharan proudly presented the Poinsur Gymkhana Senior Citizen Pariwar Karaoke Competition—an unforgettable evening filled with music, joy, and community spirit. With over 700 senior citizens gathered and 36 talented senior participants taking the stage, the event was a vibrant celebration of talent, enthusiasm, and togetherness.",
+                "The atmosphere was electric. From timeless classics to foot-tapping hits, each performance brought smiles, cheers, and even a few emotional moments.",
+                "One of the many talented participants lighting up the stage with their musical performance.",
+                "The highlight of the evening came when a 85 year-old participant danced gracefully to the music, winning a loud cheer. It was a reminder to all that joy, expression, and celebration have no age limit.",
+                "Felicitation of 50 years of marriage and 75 years of age",
+                "In a heartfelt segment, Shrreeji Sharan felicitated senior citizens who completed 75 years of life and couples who celebrated 50 years of marriage. They were honored with certificates and shawls, recognizing their wisdom, endurance, and inspiring journeys. The applause was long and emotional, with many in the audience touched by the celebration of these beautiful milestones.",
+                "This wasn’t just a musical event. It was a tribute to the enduring spirit, joy, and love that senior citizens bring into our lives. Shrreeji Sharan is honored to support and celebrate the elder community—through music, memories, and meaningful moments.",
+                "This website is meant only for information purposes. It should not be considered/ claimed as an official site. View Privacy Policy",
+                "Copyright © 2026 All rights reserved Disclaimer *T&C Apply | Designed & Developed by Realatte"
+            ],
+            "buttons": [
+                "Menu",
+                "Enquire Now"
+            ],
+            "forms": [],
+            "images": [
+                "/images/Home/icon/Shree Ji Sharan.svg",
+                "/images/Home/icon/Shree Ji Sharan.svg",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2F285_A7599_edited_r63aktuhkbwsnprid8ts2kdxzb9lf0o9mabpf7y4vk_67eaf2a15d.jpg&w=2048&q=75",
+                "https://backend.shrreejisharan.com/uploads/Whats_App_Image_2025_05_20_at_7_19_58_PM_1_edited_1_1980x1485_032880b260.jpeg",
+                "https://backend.shrreejisharan.com/uploads/285_A7590_1024x683_afa4f87c74.jpg",
+                "https://backend.shrreejisharan.com/uploads/285_A7581_edited_1024x683_bc07356680.jpg",
+                "https://backend.shrreejisharan.com/uploads/Whats_App_Image_2025_05_20_at_7_11_00_PM_1024x512_7c7d381f3a.jpeg",
+                "https://backend.shrreejisharan.com/uploads/285_A7618_1024x683_a90f1d314a.jpg",
+                "https://backend.shrreejisharan.com/uploads/IMG_2692_edited_1_8ec2e9afbe.jpeg",
+                "https://backend.shrreejisharan.com/uploads/Whats_App_Image_2025_05_20_at_7_36_02_PM_1024x576_1_6b5867c924.jpeg",
+                "/_next/image?url=%2Fimages%2Fabout%2Ffooter-image.png&w=3840&q=75",
+                "/images/Home/icon/Shree Ji Sharan.svg"
+            ],
+            "lists": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "tables": [],
+            "internal_links": [
+                "https://shrreejisharan.com/",
+                "https://shrreejisharan.com/about-us",
+                "https://shrreejisharan.com/blogs",
+                "https://shrreejisharan.com/careers",
+                "https://shrreejisharan.com/channel-partner",
+                "https://shrreejisharan.com/contact-us",
+                "https://shrreejisharan.com/emi-calculator",
+                "https://shrreejisharan.com/projects"
+            ],
+            "external_links": [
+                "https://maps.app.goo.gl/6fMDhPqE13bhFTmb8",
+                "https://realatte.com",
+                "https://www.facebook.com/ShrreejiSharanGroupofCompanies",
+                "https://www.instagram.com/shrreejisharan/",
+                "https://www.linkedin.com/company/shrreeji-sharan-group-of-companies/",
+                "https://www.youtube.com/@shrreejisharan",
+                "https://x.com/shrreejisharan"
+            ],
+            "mailto_links": [
+                "mailto:info@shreejisharan.com"
+            ],
+            "telephone_links": [],
+            "download_links": [],
+            "anchor_links": [],
+            "json_ld": [],
+            "schema_types": []
+        },
+        {
+            "created_at": "2026-07-01T12:29:41.637103",
+            "url": "https://shrreejisharan.com/blogs/covid-19-facility-receives-a-freshly-constructed-19-storey-skyscraper-from-a-mumbai-builder",
+            "title": "",
+            "description": "",
+            "page_type": "blog",
+            "language": "en",
+            "depth": 0,
+            "status_code": null,
+            "response_time_ms": null,
+            "content_hash": null,
+            "canonical": "",
+            "keywords": "",
+            "robots": "",
+            "favicon": "",
+            "og_title": "",
+            "og_description": "",
+            "og_image": "/images/default.svg",
+            "og_url": "",
+            "twitter_card": "",
+            "twitter_title": "",
+            "twitter_description": "",
+            "twitter_image": "",
+            "headings": [
+                "COVID-19 facility receives a freshly constructed 19-storey skyscraper from a Mumbai builder."
+            ],
+            "paragraphs": [
+                "A Mumbai-based real estate developer, Shrreeji Sharan Developers, has given the MCGM a recently completed, move-in-ready 19-storey building “Shrreeji Paradise”in Malad to hospitalize Covid-19 patients. The 130 apartments building by Shrreeji Sharan Developers on the SV road, for which the developer has already secured an occupancy certificate from the authorities, were ready to be handed over to their owners.",
+                "Mumbai builder Shrreeji Sharan hands over 19 storey suburb building for Covid-19 care facility",
+                "This website is meant only for information purposes. It should not be considered/ claimed as an official site. View Privacy Policy",
+                "Copyright © 2026 All rights reserved Disclaimer *T&C Apply | Designed & Developed by Realatte"
+            ],
+            "buttons": [
+                "Menu",
+                "Enquire Now"
+            ],
+            "forms": [],
+            "images": [
+                "/images/Home/icon/Shree Ji Sharan.svg",
+                "/images/Home/icon/Shree Ji Sharan.svg",
+                "/_next/image?url=https%3A%2F%2Fbackend.shrreejisharan.com%2Fuploads%2FEconomic_Times_scaled_qhfbqn7xwz029lyd7fvaizxusigu88w6sirr2pqy40_764202880e.jpg&w=2048&q=75",
+                "https://backend.shrreejisharan.com/uploads/Economic_Times_1024x724_3e5a01019c.jpg",
+                "/_next/image?url=%2Fimages%2Fabout%2Ffooter-image.png&w=3840&q=75",
+                "/images/Home/icon/Shree Ji Sharan.svg"
+            ],
+            "lists": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "tables": [],
+            "internal_links": [
+                "https://shrreejisharan.com/",
+                "https://shrreejisharan.com/about-us",
+                "https://shrreejisharan.com/blogs",
+                "https://shrreejisharan.com/careers",
+                "https://shrreejisharan.com/channel-partner",
+                "https://shrreejisharan.com/contact-us",
+                "https://shrreejisharan.com/emi-calculator",
+                "https://shrreejisharan.com/projects"
+            ],
+            "external_links": [
+                "https://maps.app.goo.gl/6fMDhPqE13bhFTmb8",
+                "https://realatte.com",
+                "https://www.facebook.com/ShrreejiSharanGroupofCompanies",
+                "https://www.instagram.com/shrreejisharan/",
+                "https://www.linkedin.com/company/shrreeji-sharan-group-of-companies/",
+                "https://www.youtube.com/@shrreejisharan",
+                "https://x.com/shrreejisharan"
+            ],
+            "mailto_links": [
+                "mailto:info@shreejisharan.com"
+            ],
+            "telephone_links": [],
+            "download_links": [],
+            "anchor_links": [],
+            "json_ld": [],
+            "schema_types": []
+        }
+    ],
+    "navigation": [],
+    "projects": [],
+    "blogs": [],
+    "trust_signals": [],
+    "contacts": {
+        "created_at": "2026-07-01T12:29:41.784226",
+        "phone_numbers": [
+            "2022-11-16",
+            "2025-04-06",
+            "2025-04-15",
+            "2025-05-08",
+            "2025-08-11",
+            "2025-09-22"
+        ],
+        "email_addresses": [
+            "info@shreejisharan.com"
+        ],
+        "office_addresses": [],
+        "social_links": [
+            "https://www.facebook.com/ShrreejiSharanGroupofCompanies",
+            "https://www.instagram.com/shrreejisharan/",
+            "https://www.linkedin.com/company/shrreeji-sharan-group-of-companies/",
+            "https://www.youtube.com/@shrreejisharan",
+            "https://x.com/shrreejisharan"
+        ]
+    },
+    "journey": {
+        "created_at": "2026-07-01T12:29:41.784277",
+        "entry_pages": [
+            {
+                "created_at": "2026-07-01T12:29:41.784289",
+                "title": "Shrreeji Sharan Group of Companies | Building Your Dream Home",
+                "url": "https://shrreejisharan.com/",
+                "page_type": "home",
+                "description": "",
+                "importance": 1.0
+            }
+        ],
+        "awareness_pages": [
+            {
+                "created_at": "2026-07-01T12:29:41.784306",
+                "title": "Blogs | Shrreeji Sharan Group of Companies",
+                "url": "https://shrreejisharan.com/blogs",
+                "page_type": "blog",
+                "description": "",
+                "importance": 1.0
+            },
+            {
+                "created_at": "2026-07-01T12:29:41.784312",
+                "title": "",
+                "url": "https://shrreejisharan.com/blogs/age-has-no-bar-talent-all-stars-senior-citizens-steal-the-show-at-the-shrreeji-sharan-karaoke-evening",
+                "page_type": "blog",
+                "description": "",
+                "importance": 1.0
+            },
+            {
+                "created_at": "2026-07-01T12:29:41.784315",
+                "title": "",
+                "url": "https://shrreejisharan.com/blogs/covid-19-facility-receives-a-freshly-constructed-19-storey-skyscraper-from-a-mumbai-builder",
+                "page_type": "blog",
+                "description": "",
+                "importance": 1.0
+            }
+        ],
+        "consideration_pages": [],
+        "trust_pages": [
+            {
+                "created_at": "2026-07-01T12:29:41.784301",
+                "title": "About Shrreeji Sharan Group of Companies",
+                "url": "https://shrreejisharan.com/about-us",
+                "page_type": "about",
+                "description": "",
+                "importance": 1.0
+            }
+        ],
+        "conversion_pages": [],
+        "support_pages": []
+    }
+}
