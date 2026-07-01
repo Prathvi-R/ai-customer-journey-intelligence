@@ -4,6 +4,7 @@ from pydantic import Field
 
 from app.models.base import BaseData
 from app.models.contact import ContactData
+from app.models.enums import PageType
 from app.models.page import PageData
 
 
@@ -13,10 +14,6 @@ class WebsiteData(BaseData):
     from an entire website.
     """
 
-    # --------------------------------------------------
-    # Website Identity
-    # --------------------------------------------------
-
     base_url: str
 
     domain: str
@@ -24,10 +21,6 @@ class WebsiteData(BaseData):
     schema_version: str = "1.0.0"
 
     crawl_timestamp: datetime = Field(default_factory=datetime.utcnow)
-
-    # --------------------------------------------------
-    # Extracted Website Content
-    # --------------------------------------------------
 
     pages: list[PageData] = Field(default_factory=list)
 
@@ -40,3 +33,35 @@ class WebsiteData(BaseData):
     trust_signals: list[str] = Field(default_factory=list)
 
     contacts: ContactData = Field(default_factory=ContactData)
+
+    @property
+    def home_pages(self) -> list[PageData]:
+        return [
+            page
+            for page in self.pages
+            if page.page_type == PageType.HOME
+        ]
+
+    @property
+    def about_pages(self) -> list[PageData]:
+        return [
+            page
+            for page in self.pages
+            if page.page_type == PageType.ABOUT
+        ]
+
+    @property
+    def project_pages(self) -> list[PageData]:
+        return [
+            page
+            for page in self.pages
+            if page.page_type == PageType.PROJECT
+        ]
+
+    @property
+    def blog_pages(self) -> list[PageData]:
+        return [
+            page
+            for page in self.pages
+            if page.page_type == PageType.BLOG
+        ]

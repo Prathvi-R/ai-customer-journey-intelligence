@@ -6,6 +6,7 @@ from app.models.crawl import CrawlResult
 from app.models.enums import CrawlStatus
 from app.models.website import WebsiteData
 from app.services.browser import BrowserService
+from app.services.classification import ClassificationService
 from app.services.extractor import ExtractionService
 from app.services.url import URLService
 from app.utils.logger import logger
@@ -18,6 +19,7 @@ class WebsiteCollector:
     Responsibilities:
     - Crawl internal pages
     - Extract structured page data
+    - Classify pages
     - Build WebsiteData
     """
 
@@ -77,6 +79,11 @@ class WebsiteCollector:
                     )
 
                     page_data = await ExtractionService.extract(page)
+
+                    # Page classification
+                    page_data.page_type = ClassificationService.classify(
+                        page_data
+                    )
 
                     website.pages.append(page_data)
 
@@ -145,7 +152,7 @@ class WebsiteCollector:
 
             if crawl_result.pages_failed > 0:
                 crawl_result.status = CrawlStatus.PARTIAL
-            
+
             logger.success(
                 f"Crawl completed. "
                 f"Visited={crawl_result.pages_crawled}, "

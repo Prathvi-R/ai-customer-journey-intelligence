@@ -1,0 +1,32 @@
+{
+    "created_at": "2026-07-01T11:39:21.800757",
+    "status": "partial",
+    "started_at": "2026-07-01T11:39:18.945343",
+    "completed_at": "2026-07-01T11:39:26.487045",
+    "pages_discovered": 1,
+    "pages_crawled": 0,
+    "pages_failed": 1,
+    "visited_urls": [],
+    "failed_urls": [
+        "https://shrreejisharan.com"
+    ],
+    "website_data": {
+        "created_at": "2026-07-01T11:39:21.797812",
+        "base_url": "https://shrreejisharan.com",
+        "domain": "shrreejisharan.com",
+        "schema_version": "1.0.0",
+        "crawl_timestamp": "2026-07-01T11:39:21.799994",
+        "pages": [],
+        "navigation": [],
+        "projects": [],
+        "blogs": [],
+        "trust_signals": [],
+        "contacts": {
+            "created_at": "2026-07-01T11:39:21.800015",
+            "phone_numbers": [],
+            "email_addresses": [],
+            "office_addresses": [],
+            "social_links": []
+        }
+    }
+}

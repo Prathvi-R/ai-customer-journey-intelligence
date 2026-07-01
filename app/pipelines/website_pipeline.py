@@ -1,3 +1,4 @@
+from app.analyzers.website import WebsiteAnalyzer
 from app.collectors.website import WebsiteCollector
 from app.models.crawl import CrawlResult
 from app.services.storage import StorageService
@@ -6,16 +7,18 @@ from app.utils.logger import logger
 
 class WebsitePipeline:
     """
-    Orchestrates website collection.
+    Orchestrates the complete website pipeline.
 
-    Collector
-        ↓
-    Storage
-        ↓
-    (Future)
-        Embeddings
-        Knowledge Graph
-        AI Agents
+        Collector
+            ↓
+        Website Analyzer
+            ↓
+        Storage
+            ↓
+        (Future)
+            Embeddings
+            Knowledge Graph
+            AI Agents
     """
 
     def __init__(
@@ -35,7 +38,23 @@ class WebsitePipeline:
 
         logger.info("Starting Website Pipeline")
 
+        # ----------------------------
+        # Crawl website
+        # ----------------------------
+
         crawl_result = await self.collector.collect()
+
+        # ----------------------------
+        # Analyze website
+        # ----------------------------
+
+        crawl_result.website_data = WebsiteAnalyzer.analyze(
+            crawl_result.website_data
+        )
+
+        # ----------------------------
+        # Save outputs
+        # ----------------------------
 
         run_directory = self.storage.create_run(
             "website"
