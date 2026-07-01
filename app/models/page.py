@@ -1,28 +1,27 @@
 from typing import List
 
-from pydantic import Field
-
-from app.models.base import BaseSchema
-from app.models.enums import PageType
+from app.models.base import BaseData
 
 
-class PageData(BaseSchema):
+class PageData(BaseData):
+    """
+    Represents structured information extracted from a single webpage.
+    """
+
     url: str
 
-    title: str = ""
+    title: str
 
-    meta_description: str = ""
+    meta_description: str
 
-    page_type: PageType = PageType.OTHER
+    headings: List[str]
 
-    headings: List[str] = Field(default_factory=list)
+    paragraphs: List[str]
 
-    paragraphs: List[str] = Field(default_factory=list)
+    buttons: List[str]
 
-    buttons: List[str] = Field(default_factory=list)
+    forms: List[str]
 
-    forms: List[str] = Field(default_factory=list)
+    links: List[str]
 
-    links: List[str] = Field(default_factory=list)
-
-    images: List[str] = Field(default_factory=list)
+    images: List[str]

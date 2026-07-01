@@ -1,74 +1,38 @@
-from datetime import datetime
-from typing import List, Optional
-
 from pydantic import Field
 
-from app.models.base import BaseSchema
-from app.models.enums import ArtifactType, CrawlStatus, ErrorStage
+from app.models.base import BaseData
 from app.models.website import WebsiteData
 
 
-class CrawlConfig(BaseSchema):
+class CrawlConfig(BaseData):
     """
-    Configuration used for a crawl run.
+    Configuration used during a crawl.
     """
 
-    start_url: str
-
-    max_pages: int = 100
-
-    max_depth: int = 5
-
-    timeout: int = 30000  # milliseconds
+    max_pages: int = 25
 
     headless: bool = True
 
-    take_screenshots: bool = True
-
-    allowed_domains: List[str] = Field(default_factory=list)
+    timeout: int = 30000
 
 
-class CrawlError(BaseSchema):
+class CrawlError(BaseData):
     """
-    Information about a failed page.
+    Represents a failed crawl attempt.
     """
 
     url: str
 
-    stage: ErrorStage
-
-    message: str
+    error: str
 
 
-class PageArtifact(BaseSchema):
+class CrawlResult(BaseData):
     """
-    Files generated while crawling a page.
+    Result returned after a website crawl.
     """
 
-    url: str
+    visited_urls: list[str] = Field(default_factory=list)
 
-    artifact_type: ArtifactType
-
-    path: str
-
-
-class CrawlResult(BaseSchema):
-    """
-    Result of an entire crawl.
-    """
-
-    status: CrawlStatus = CrawlStatus.COMPLETED
-
-    started_at: datetime = Field(default_factory=datetime.utcnow)
-
-    completed_at: Optional[datetime] = None
-
-    visited_urls: List[str] = Field(default_factory=list)
-
-    failed_urls: List[str] = Field(default_factory=list)
-
-    errors: List[CrawlError] = Field(default_factory=list)
-
-    artifacts: List[PageArtifact] = Field(default_factory=list)
+    failed_urls: list[str] = Field(default_factory=list)
 
     website_data: WebsiteData

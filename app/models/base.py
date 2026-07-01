@@ -1,13 +1,16 @@
-from datetime import datetime
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict
 
 
-class BaseSchema(BaseModel):
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    schema_version: str = "1.0.0"
+class BaseData(BaseModel):
+    """
+    Base model for all application data contracts.
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "extra": "forbid",
-    }
+    Every serializable model in the project should inherit from this class.
+    """
+
+    model_config = ConfigDict(
+        extra="forbid",
+        validate_assignment=True,
+        populate_by_name=True,
+        str_strip_whitespace=True,
+    )
