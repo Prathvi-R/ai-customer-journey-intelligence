@@ -5,6 +5,7 @@ from app.services.browser import BrowserService
 from app.services.extractor import ExtractionService
 from app.services.url import URLService
 from app.utils.logger import logger
+from urllib.parse import urlparse
 
 
 class WebsiteCollector:
@@ -39,6 +40,7 @@ class WebsiteCollector:
 
         website = WebsiteData(
             base_url=self.base_url,
+            domain=urlparse(self.base_url).netloc,
         )
 
         try:

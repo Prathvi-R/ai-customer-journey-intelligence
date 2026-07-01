@@ -14,10 +14,18 @@ class ExtractionService:
         html = await page.content()
         soup = BeautifulSoup(html, "lxml")
 
-        title = soup.title.string.strip() if soup.title and soup.title.string else ""
+        title = (
+            soup.title.string.strip()
+            if soup.title and soup.title.string
+            else ""
+        )
 
         meta = soup.find("meta", attrs={"name": "description"})
-        meta_description = meta.get("content", "").strip() if meta else ""
+        meta_description = (
+            meta.get("content", "").strip()
+            if meta
+            else ""
+        )
 
         headings = [
             h.get_text(" ", strip=True)
@@ -53,7 +61,7 @@ class ExtractionService:
         return PageData(
             url=page.url,
             title=title,
-            meta_description=meta_description,
+            description=meta_description,
             headings=headings,
             paragraphs=paragraphs,
             buttons=buttons,

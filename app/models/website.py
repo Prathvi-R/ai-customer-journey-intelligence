@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import Field
 
 from app.models.base import BaseData
@@ -7,11 +9,25 @@ from app.models.page import PageData
 
 class WebsiteData(BaseData):
     """
-    Represents all structured information collected
-    from a single website.
+    Represents the structured information collected
+    from an entire website.
     """
 
+    # --------------------------------------------------
+    # Website Identity
+    # --------------------------------------------------
+
     base_url: str
+
+    domain: str
+
+    schema_version: str = "1.0.0"
+
+    crawl_timestamp: datetime = Field(default_factory=datetime.utcnow)
+
+    # --------------------------------------------------
+    # Extracted Website Content
+    # --------------------------------------------------
 
     pages: list[PageData] = Field(default_factory=list)
 
@@ -23,4 +39,4 @@ class WebsiteData(BaseData):
 
     trust_signals: list[str] = Field(default_factory=list)
 
-    contact: ContactData = Field(default_factory=ContactData)
+    contacts: ContactData = Field(default_factory=ContactData)

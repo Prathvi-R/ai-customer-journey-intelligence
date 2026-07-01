@@ -1,5 +1,17 @@
 import asyncio
 
-from app.main import main
+from app.pipelines.website_pipeline import WebsitePipeline
 
-asyncio.run(main())
+
+async def main():
+
+    pipeline = WebsitePipeline(
+        base_url="https://shrreejisharan.com",
+        max_pages=5,
+    )
+
+    await pipeline.run()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

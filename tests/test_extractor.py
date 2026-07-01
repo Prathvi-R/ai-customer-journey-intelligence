@@ -5,15 +5,15 @@ from app.services.extractor import ExtractionService
 
 
 async def main():
-    browser = BrowserService(headless=True)
+    browser_service = BrowserService()
 
-    await browser.start()
+    await browser_service.start()
 
-    page = await browser.new_page()
+    page = await browser_service.new_page()
 
-    await browser.goto(
-        page,
+    await page.goto(
         "https://shrreejisharan.com",
+        wait_until="domcontentloaded",
     )
 
     page_data = await ExtractionService.extract(page)
@@ -21,7 +21,7 @@ async def main():
     print("=" * 60)
     print("URL         :", page_data.url)
     print("Title       :", page_data.title)
-    print("Description :", page_data.meta_description)
+    print("Description :", page_data.description)
     print("Headings    :", len(page_data.headings))
     print("Paragraphs  :", len(page_data.paragraphs))
     print("Buttons     :", len(page_data.buttons))
@@ -30,7 +30,7 @@ async def main():
     print("Images      :", len(page_data.images))
     print("=" * 60)
 
-    await browser.close()
+    await browser_service.close()
 
 
 if __name__ == "__main__":

@@ -2,9 +2,8 @@ from enum import Enum
 
 
 class CrawlStatus(str, Enum):
-    PENDING = "pending"
-    RUNNING = "running"
-    COMPLETED = "completed"
+    SUCCESS = "success"
+    PARTIAL = "partial"
     FAILED = "failed"
 
 
@@ -25,7 +24,15 @@ class PageType(str, Enum):
     HOME = "home"
     ABOUT = "about"
     SERVICE = "service"
+    PROJECT = "project"
     PRODUCT = "product"
     BLOG = "blog"
     CONTACT = "contact"
+    CAREER = "career"
     OTHER = "other"
+
+class SourceType(str, Enum):
+    WEBSITE = "website"
+    PDF = "pdf"
+    INSTAGRAM = "instagram"
+    REVIEWS = "reviews"

@@ -1,27 +1,52 @@
-from typing import List
+from typing import Optional
+
+from pydantic import Field
 
 from app.models.base import BaseData
+from app.models.enums import PageType
 
 
 class PageData(BaseData):
     """
-    Represents structured information extracted from a single webpage.
+    Represents a single crawled webpage.
     """
 
+    # -------------------------
+    # Identity
+    # -------------------------
+
     url: str
+    title: str = ""
+    description: str = ""
 
-    title: str
+    # -------------------------
+    # Crawl Metadata
+    # -------------------------
 
-    meta_description: str
+    page_type: PageType = PageType.OTHER
 
-    headings: List[str]
+    depth: int = 0
 
-    paragraphs: List[str]
+    status_code: Optional[int] = None
 
-    buttons: List[str]
+    response_time_ms: Optional[float] = None
 
-    forms: List[str]
+    content_hash: Optional[str] = None
 
-    links: List[str]
+    language: Optional[str] = None
 
-    images: List[str]
+    # -------------------------
+    # Extracted Content
+    # -------------------------
+
+    headings: list[str] = Field(default_factory=list)
+
+    paragraphs: list[str] = Field(default_factory=list)
+
+    links: list[str] = Field(default_factory=list)
+
+    images: list[str] = Field(default_factory=list)
+
+    buttons: list[str] = Field(default_factory=list)
+
+    forms: list[str] = Field(default_factory=list)

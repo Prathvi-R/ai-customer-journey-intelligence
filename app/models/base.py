@@ -1,4 +1,6 @@
-from pydantic import BaseModel, ConfigDict
+from datetime import datetime
+
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class BaseData(BaseModel):
@@ -14,3 +16,5 @@ class BaseData(BaseModel):
         populate_by_name=True,
         str_strip_whitespace=True,
     )
+
+    created_at: datetime = Field(default_factory=datetime.utcnow)
