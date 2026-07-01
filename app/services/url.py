@@ -1,4 +1,10 @@
-from urllib.parse import urljoin, urlparse, urlunparse, parse_qsl, urlencode
+from urllib.parse import (
+    urljoin,
+    urlparse,
+    urlunparse,
+    parse_qsl,
+    urlencode,
+)
 
 
 TRACKING_PARAMETERS = {
@@ -13,16 +19,17 @@ TRACKING_PARAMETERS = {
 
 
 class URLService:
-    """Utility methods for URL normalization and classification."""
+    """
+    Utility methods for URL normalization,
+    classification and validation.
+    """
 
     @staticmethod
     def normalize(url: str) -> str:
         parsed = urlparse(url)
 
-        # Remove fragment
         parsed = parsed._replace(fragment="")
 
-        # Remove tracking query params
         query = [
             (k, v)
             for k, v in parse_qsl(parsed.query)
@@ -39,6 +46,10 @@ class URLService:
         return normalized
 
     @staticmethod
+    def absolute(base_url: str, href: str) -> str:
+        return urljoin(base_url, href)
+
+    @staticmethod
     def is_internal(base_url: str, target_url: str) -> bool:
         base = urlparse(base_url)
         target = urlparse(target_url)
@@ -46,5 +57,32 @@ class URLService:
         return base.netloc == target.netloc
 
     @staticmethod
-    def absolute(base_url: str, href: str) -> str:
-        return urljoin(base_url, href)
+    def is_crawlable(url: str) -> bool:
+        """
+        Ignore URLs that should never be crawled.
+        """
+
+        if not url:
+            return False
+
+        lowered = url.lower()
+
+        if lowered.startswith("#"):
+            return False
+
+        if lowered.startswith("javascript:"):
+            return False
+
+        if lowered.startswith("mailto:"):
+            return False
+
+        if lowered.startswith("tel:"):
+            return False
+
+        if lowered.startswith("sms:"):
+            return False
+
+        if lowered.startswith("whatsapp:"):
+            return False
+
+        return True
