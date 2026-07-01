@@ -1,11 +1,14 @@
+from datetime import datetime
+from urllib.parse import urlparse
+
 from app.collectors.crawl_state import CrawlState
 from app.models.crawl import CrawlResult
+from app.models.enums import CrawlStatus
 from app.models.website import WebsiteData
 from app.services.browser import BrowserService
 from app.services.extractor import ExtractionService
 from app.services.url import URLService
 from app.utils.logger import logger
-from urllib.parse import urlparse
 
 
 class WebsiteCollector:
@@ -34,6 +37,8 @@ class WebsiteCollector:
 
     async def collect(self) -> CrawlResult:
 
+        started_at = datetime.utcnow()
+
         logger.info(f"Starting crawl: {self.base_url}")
 
         await self.browser.start()
@@ -41,6 +46,11 @@ class WebsiteCollector:
         website = WebsiteData(
             base_url=self.base_url,
             domain=urlparse(self.base_url).netloc,
+        )
+
+        crawl_result = CrawlResult(
+            started_at=started_at,
+            website_data=website,
         )
 
         try:
@@ -108,18 +118,40 @@ class WebsiteCollector:
 
                     self.state.mark_failed(current_url)
 
-            logger.success(
-                f"Crawl completed. "
-                f"Visited={len(self.state.visited)}, "
-                f"Failed={len(self.state.failed)}"
-            )
+            crawl_result.status = CrawlStatus.SUCCESS
 
-            return CrawlResult(
-                visited_urls=sorted(self.state.visited),
-                failed_urls=self.state.failed,
-                website_data=website,
-            )
+        except Exception:
+
+            crawl_result.status = CrawlStatus.FAILED
+            raise
 
         finally:
 
+            crawl_result.completed_at = datetime.utcnow()
+
+            crawl_result.pages_discovered = (
+                len(self.state.visited)
+                + len(self.state.failed)
+                + len(self.state.queue)
+            )
+
+            crawl_result.pages_crawled = len(self.state.visited)
+
+            crawl_result.pages_failed = len(self.state.failed)
+
+            crawl_result.visited_urls = sorted(self.state.visited)
+
+            crawl_result.failed_urls = self.state.failed
+
+            if crawl_result.pages_failed > 0:
+                crawl_result.status = CrawlStatus.PARTIAL
+            
+            logger.success(
+                f"Crawl completed. "
+                f"Visited={crawl_result.pages_crawled}, "
+                f"Failed={crawl_result.pages_failed}"
+            )
+
             await self.browser.close()
+
+        return crawl_result
