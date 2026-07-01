@@ -1,65 +1,51 @@
-from datetime import datetime
-
 from pydantic import Field
 
 from app.models.base import BaseData
 from app.models.contact import ContactData
 from app.models.journey import CustomerJourney
+from app.models.navigation import NavigationGraph
 from app.models.page import PageData
+from app.models.cta import CTACollection
 
 
 class WebsiteData(BaseData):
     """
-    Represents the structured information collected
-    from an entire website.
+    Represents the complete knowledge extracted
+    from a website.
     """
 
     # --------------------------------------------------
-    # Website Identity
+    # Identity
     # --------------------------------------------------
 
     base_url: str
 
     domain: str
 
-    schema_version: str = "1.0.0"
-
-    crawl_timestamp: datetime = Field(
-        default_factory=datetime.utcnow
-    )
-
     # --------------------------------------------------
-    # Extracted Website Content
+    # Pages
     # --------------------------------------------------
 
     pages: list[PageData] = Field(
         default_factory=list
     )
 
-    navigation: list[str] = Field(
-        default_factory=list
-    )
-
-    projects: list[str] = Field(
-        default_factory=list
-    )
-
-    blogs: list[str] = Field(
-        default_factory=list
-    )
-
-    trust_signals: list[str] = Field(
-        default_factory=list
-    )
+    # --------------------------------------------------
+    # Website-Level Intelligence
+    # --------------------------------------------------
 
     contacts: ContactData = Field(
         default_factory=ContactData
     )
 
-    # --------------------------------------------------
-    # Customer Journey
-    # --------------------------------------------------
-
     journey: CustomerJourney = Field(
         default_factory=CustomerJourney
+    )
+
+    navigation: NavigationGraph = Field(
+        default_factory=NavigationGraph
+    )
+
+    cta: CTACollection = Field(
+        default_factory=CTACollection
     )

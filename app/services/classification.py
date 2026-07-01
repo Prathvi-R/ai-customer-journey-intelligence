@@ -4,45 +4,67 @@ from app.models.page import PageData
 
 class ClassificationService:
     """
-    Deterministic page classifier.
+    Determines the functional purpose of a page.
 
-    Uses URL and title heuristics to classify pages.
-    No AI is involved at this stage.
+    Uses URL, title and headings.
     """
 
     @staticmethod
     def classify(page: PageData) -> PageType:
 
         url = page.url.lower()
+
         title = page.title.lower()
 
-        text = f"{url} {title}"
+        headings = " ".join(page.headings).lower()
 
-        if (
-            url.rstrip("/") == f"https://{page.url.split('/')[2]}"
-            or url.count("/") <= 2
-        ):
+        text = f"{url} {title} {headings}"
+
+        if url.endswith("/"):
             return PageType.HOME
 
         if "about" in text:
             return PageType.ABOUT
 
-        if "project" in text:
-            return PageType.PROJECT
+        if "contact" in text:
+            return PageType.CONTACT
 
-        if "product" in text:
-            return PageType.PRODUCT
+        if "career" in text:
+            return PageType.CAREER
 
         if "blog" in text:
             return PageType.BLOG
 
-        if "career" in text or "job" in text:
-            return PageType.CAREER
+        if any(
+            word in text
+            for word in [
+                "project",
+                "portfolio",
+                "completed project",
+                "ongoing project",
+            ]
+        ):
+            return PageType.PROJECT
 
-        if "contact" in text:
-            return PageType.CONTACT
-
-        if "service" in text:
+        if any(
+            word in text
+            for word in [
+                "service",
+                "solution",
+                "what we do",
+            ]
+        ):
             return PageType.SERVICE
+
+        if any(
+            word in text
+            for word in [
+                "product",
+                "pricing",
+                "buy",
+                "shop",
+            ]
+        ):
+            return PageType.PRODUCT
 
         return PageType.OTHER

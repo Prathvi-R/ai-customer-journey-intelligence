@@ -1,20 +1,39 @@
-from app.models.page import PageData
+from app.models.navigation import NavigationGraph
+from app.models.navigation import NavigationNode
+from app.models.website import WebsiteData
 
 
 class NavigationAnalyzer:
 
     @staticmethod
-    def extract(
-        pages: list[PageData],
-    ) -> list[str]:
+    def analyze(
+        website: WebsiteData,
+    ) -> NavigationGraph:
 
-        nav = []
+        graph = NavigationGraph()
 
-        for page in pages:
+        page_lookup = {
+            page.url: page
+            for page in website.pages
+        }
 
-            title = page.title.strip()
+        for page in website.pages:
 
-            if title and title not in nav:
-                nav.append(title)
+            node = NavigationNode(
 
-        return nav
+                url=page.url,
+
+                title=page.title,
+
+                page_type=page.page_type.value,
+
+                children=[
+                    link
+                    for link in page.internal_links
+                    if link in page_lookup
+                ],
+            )
+
+            graph.nodes.append(node)
+
+        return graph

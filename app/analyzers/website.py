@@ -1,6 +1,9 @@
 from app.analyzers.contact import ContactAnalyzer
 from app.analyzers.journey import JourneyAnalyzer
+from app.analyzers.navigation import NavigationAnalyzer
+from app.models import website
 from app.models.website import WebsiteData
+from app.analyzers.cta import CTAAnalyzer
 
 
 class WebsiteAnalyzer:
@@ -23,6 +26,22 @@ class WebsiteAnalyzer:
         )
 
         # -----------------------------------------
+        # Navigation Graph
+        # -----------------------------------------
+
+        website.navigation = NavigationAnalyzer.analyze(
+            website
+        )
+
+        # -----------------------------------------
+        # CTA Analysis
+        # -----------------------------------------
+
+        website.cta = CTAAnalyzer.analyze(
+            website
+        )
+
+        # -----------------------------------------
         # Customer Journey
         # -----------------------------------------
 
@@ -33,9 +52,6 @@ class WebsiteAnalyzer:
         # -----------------------------------------
         # Future analyzers
         # -----------------------------------------
-        #
-        # website.navigation =
-        #     NavigationAnalyzer.analyze(website)
         #
         # website.trust_signals =
         #     TrustAnalyzer.analyze(website)
@@ -54,6 +70,12 @@ class WebsiteAnalyzer:
         #
         # website.funnel =
         #     FunnelAnalyzer.analyze(website)
+        #
+        # website.seo =
+        #     SEOAnalyzer.analyze(website)
+        #
+        # website.content =
+        #     ContentAnalyzer.analyze(website)
         #
 
         return website
