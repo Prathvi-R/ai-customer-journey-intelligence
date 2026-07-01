@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-from app.models.website_models import WebsiteData
+from app.models.website import WebsiteData
 
 
 class CrawlResult(BaseModel):

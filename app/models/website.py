@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 
 from app.models.page import PageData
-from app.models.contact_models import ContactInfo
+from app.models.contact import ContactInfo
 
 
 class WebsiteData(BaseModel):

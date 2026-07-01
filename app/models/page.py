@@ -1,26 +1,28 @@
-from pydantic import BaseModel, Field
+from typing import List
+
+from pydantic import Field
+
+from app.models.base import BaseSchema
+from app.models.enums import PageType
 
 
-class PageData(BaseModel):
-    # Basic information
+class PageData(BaseSchema):
     url: str
+
     title: str = ""
+
     meta_description: str = ""
 
-    # Content
-    headings: list[str] = Field(default_factory=list)
-    paragraphs: list[str] = Field(default_factory=list)
+    page_type: PageType = PageType.OTHER
 
-    # UI Elements
-    buttons: list[str] = Field(default_factory=list)
-    forms: list[str] = Field(default_factory=list)
+    headings: List[str] = Field(default_factory=list)
 
-    # Navigation
-    internal_links: list[str] = Field(default_factory=list)
-    external_links: list[str] = Field(default_factory=list)
+    paragraphs: List[str] = Field(default_factory=list)
 
-    # Media
-    images: list[str] = Field(default_factory=list)
+    buttons: List[str] = Field(default_factory=list)
 
-    # Metadata
-    screenshot_path: str | None = None
+    forms: List[str] = Field(default_factory=list)
+
+    links: List[str] = Field(default_factory=list)
+
+    images: List[str] = Field(default_factory=list)
