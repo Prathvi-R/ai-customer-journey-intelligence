@@ -1,22 +1,23 @@
 from pathlib import Path
 
 import chromadb
-from chromadb.config import Settings
 
 from app.models.embedding import EmbeddingChunk
 
 
 class ChromaStore:
     """
-    Persistent vector store backed by ChromaDB.
+    Persistent ChromaDB vector store.
     """
 
-    COLLECTION_NAME = "website_embeddings"
+    COLLECTION_NAME = "website"
 
     def __init__(self):
 
         self.client = None
         self.collection = None
+
+    ###########################################################
 
     def build(
         self,
@@ -24,16 +25,10 @@ class ChromaStore:
         directory: Path,
     ):
 
-        directory.mkdir(
-            parents=True,
-            exist_ok=True,
-        )
+        db_path = directory / "chromadb"
 
         self.client = chromadb.PersistentClient(
-            path=str(directory),
-            settings=Settings(
-                anonymized_telemetry=False,
-            ),
+            path=str(db_path)
         )
 
         try:
@@ -44,40 +39,71 @@ class ChromaStore:
             pass
 
         self.collection = self.client.create_collection(
-            name=self.COLLECTION_NAME
+            self.COLLECTION_NAME
         )
 
         if not chunks:
             return
 
+        embeddings = [
+            chunk.embedding
+            for chunk in chunks
+            if chunk.embedding
+        ]
+
+        documents = [
+            chunk.content
+            for chunk in chunks
+            if chunk.embedding
+        ]
+
+        ids = [
+            chunk.id
+            for chunk in chunks
+            if chunk.embedding
+        ]
+
+        metadatas = [
+            {
+                "title": chunk.title,
+                "source": chunk.source,
+                **chunk.metadata,
+            }
+            for chunk in chunks
+            if chunk.embedding
+        ]
+
         self.collection.add(
-            ids=[
-                chunk.id
-                for chunk in chunks
-            ],
-            embeddings=[
-                chunk.embedding
-                for chunk in chunks
-            ],
-            documents=[
-                chunk.content
-                for chunk in chunks
-            ],
-            metadatas=[
-                {
-                    "source": chunk.source,
-                    "title": chunk.title,
-                    **chunk.metadata,
-                }
-                for chunk in chunks
-            ],
+            ids=ids,
+            embeddings=embeddings,
+            documents=documents,
+            metadatas=metadatas,
         )
+
+    ###########################################################
+
+    def load(
+        self,
+        directory: Path,
+    ):
+
+        db_path = directory / "chromadb"
+
+        self.client = chromadb.PersistentClient(
+            path=str(db_path)
+        )
+
+        self.collection = self.client.get_collection(
+            self.COLLECTION_NAME
+        )
+
+    ###########################################################
 
     def search(
         self,
         embedding: list[float],
         top_k: int = 5,
-    ) -> list[dict]:
+    ) -> list[EmbeddingChunk]:
 
         if self.collection is None:
             return []
@@ -89,42 +115,50 @@ class ChromaStore:
 
         output = []
 
-        for document, metadata, distance in zip(
-            results["documents"][0],
-            results["metadatas"][0],
-            results["distances"][0],
+        ids = results["ids"][0]
+        docs = results["documents"][0]
+        metas = results["metadatas"][0]
+
+        for idx, doc, meta in zip(
+            ids,
+            docs,
+            metas,
         ):
+
             output.append(
-                {
-                    "content": document,
-                    "metadata": metadata,
-                    "distance": distance,
-                }
+
+                EmbeddingChunk(
+
+                    id=idx,
+
+                    source=meta.get(
+                        "source",
+                        "",
+                    ),
+
+                    title=meta.get(
+                        "title",
+                        "",
+                    ),
+
+                    content=doc,
+
+                    metadata=meta,
+
+                    embedding=[],
+                )
+
             )
 
         return output
+
+    ###########################################################
 
     def save(
         self,
         directory: Path,
     ):
         """
-        ChromaDB persists automatically.
+        PersistentClient saves automatically.
         """
         pass
-
-    def load(
-        self,
-        directory: Path,
-    ):
-
-        self.client = chromadb.PersistentClient(
-            path=str(directory),
-            settings=Settings(
-                anonymized_telemetry=False,
-            ),
-        )
-
-        self.collection = self.client.get_collection(
-            self.COLLECTION_NAME
-        )

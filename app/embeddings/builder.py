@@ -1,8 +1,7 @@
-from app.embeddings.chunker import ChunkingService
-from app.models.embedding import (
-    EmbeddingChunk,
-    EmbeddingData,
-)
+from app.embeddings.chunker import TextChunker
+from app.embeddings.encoder import EmbeddingEncoder
+
+from app.models.embedding import EmbeddingData
 from app.models.website import WebsiteData
 
 
@@ -13,40 +12,14 @@ class EmbeddingBuilder:
         website: WebsiteData,
     ) -> EmbeddingData:
 
-        data = EmbeddingData()
+        embedding_data = TextChunker.chunk(
+            website
+        )
 
-        for page in website.pages:
+        encoder = EmbeddingEncoder()
 
-            text = "\n".join(
-                page.headings +
-                page.paragraphs
-            )
+        embedding_data.chunks = encoder.encode(
+            embedding_data.chunks
+        )
 
-            chunks = ChunkingService.chunk(
-                text
-            )
-
-            for index, chunk in enumerate(chunks):
-
-                data.chunks.append(
-
-                    EmbeddingChunk(
-
-                        id=f"{page.url}#{index}",
-
-                        source=page.url,
-
-                        title=page.title,
-
-                        content=chunk,
-
-                        metadata={
-                            "page_type":
-                            page.page_type.value
-                        },
-
-                    )
-
-                )
-
-        return data
+        return embedding_data

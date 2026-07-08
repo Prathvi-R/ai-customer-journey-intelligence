@@ -5,7 +5,7 @@ from app.models.base import BaseData
 
 class EmbeddingChunk(BaseData):
     """
-    One searchable text chunk.
+    One searchable chunk.
     """
 
     id: str
@@ -27,8 +27,7 @@ class EmbeddingChunk(BaseData):
 
 class EmbeddingData(BaseData):
     """
-    Collection of chunks ready
-    for semantic search.
+    Complete embedding dataset.
     """
 
     chunks: list[EmbeddingChunk] = Field(

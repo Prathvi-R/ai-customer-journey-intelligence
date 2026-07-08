@@ -1,21 +1,35 @@
-from app.models.embedding import (
-    EmbeddingData,
-)
+from sentence_transformers import SentenceTransformer
+
+from app.models.embedding import EmbeddingChunk
 
 
 class EmbeddingEncoder:
-    """
-    Placeholder encoder.
 
-    Later this will generate
-    vector embeddings using
-    Jina, Voyage, OpenAI,
-    BGE, etc.
-    """
+    def __init__(self):
 
-    @staticmethod
+        self.model = SentenceTransformer(
+            "BAAI/bge-small-en-v1.5"
+        )
+
     def encode(
-        embeddings: EmbeddingData,
-    ):
+        self,
+        chunks: list[EmbeddingChunk],
+    ) -> list[EmbeddingChunk]:
 
-        return embeddings
+        texts = [
+            chunk.content
+            for chunk in chunks
+        ]
+
+        vectors = self.model.encode(
+            texts,
+            normalize_embeddings=True,
+        )
+
+        for chunk, vector in zip(
+            chunks,
+            vectors,
+        ):
+            chunk.embedding = vector.tolist()
+
+        return chunks

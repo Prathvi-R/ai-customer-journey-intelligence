@@ -1,48 +1,90 @@
-class ChunkingService:
-    """
-    Splits long text into
-    LLM-friendly chunks.
-    """
+from app.models.embedding import (
+    EmbeddingChunk,
+    EmbeddingData,
+)
+from app.models.website import WebsiteData
+
+
+class TextChunker:
+
+    MAX_PARAGRAPHS = 5
 
     @staticmethod
     def chunk(
-        text: str,
-        chunk_size: int = 800,
-    ) -> list[str]:
+        website: WebsiteData,
+    ) -> EmbeddingData:
 
-        text = text.strip()
+        data = EmbeddingData()
 
-        if not text:
-            return []
+        # ----------------------------------------
+        # Website Pages
+        # ----------------------------------------
 
-        words = text.split()
+        for page in website.pages:
 
-        chunks = []
-
-        current = []
-
-        current_length = 0
-
-        for word in words:
-
-            current.append(word)
-
-            current_length += len(word) + 1
-
-            if current_length >= chunk_size:
-
-                chunks.append(
-                    " ".join(current)
-                )
-
-                current = []
-
-                current_length = 0
-
-        if current:
-
-            chunks.append(
-                " ".join(current)
+            text = "\n".join(
+                page.paragraphs[
+                    : TextChunker.MAX_PARAGRAPHS
+                ]
             )
 
-        return chunks
+            data.chunks.append(
+                EmbeddingChunk(
+                    id=page.url,
+                    source="page",
+                    title=page.title,
+                    content=text,
+                    metadata={
+                        "url": page.url,
+                        "page_type": page.page_type.value,
+                    },
+                )
+            )
+
+        # ----------------------------------------
+        # Projects / Services
+        # ----------------------------------------
+
+        if website.projects:
+
+            for project in website.projects.projects:
+
+                data.chunks.append(
+                    EmbeddingChunk(
+                        id=f"project-{project.name}",
+                        source="project",
+                        title=project.name,
+                        content=project.description,
+                        metadata={
+                            "url": project.url,
+                            "page_type": project.page_type,
+                        },
+                    )
+                )
+
+        # ----------------------------------------
+        # Personas
+        # ----------------------------------------
+
+        if website.personas:
+
+            for persona in website.personas.personas:
+
+                evidence = "\n".join(persona.evidence)
+
+                if not evidence:
+                    evidence = persona.name
+
+                data.chunks.append(
+                    EmbeddingChunk(
+                        id=f"persona-{persona.name}",
+                        source="persona",
+                        title=persona.name,
+                        content=evidence,
+                        metadata={
+                            "confidence": persona.confidence,
+                        },
+                    )
+                )
+
+        return data
