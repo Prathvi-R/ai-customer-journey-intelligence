@@ -1,0 +1,62 @@
+from app.models.graph import KnowledgeGraph
+
+
+class GraphUtils:
+    """
+    Utility helpers for working with
+    KnowledgeGraph objects.
+    """
+
+    @staticmethod
+    def remove_duplicate_nodes(
+        graph: KnowledgeGraph,
+    ) -> KnowledgeGraph:
+
+        unique = {}
+
+        for node in graph.nodes:
+            unique[node.id] = node
+
+        graph.nodes = list(
+            unique.values()
+        )
+
+        return graph
+
+    @staticmethod
+    def remove_duplicate_edges(
+        graph: KnowledgeGraph,
+    ) -> KnowledgeGraph:
+
+        unique = {}
+
+        for edge in graph.edges:
+
+            key = (
+                edge.source,
+                edge.target,
+                edge.relation,
+            )
+
+            unique[key] = edge
+
+        graph.edges = list(
+            unique.values()
+        )
+
+        return graph
+
+    @staticmethod
+    def optimize(
+        graph: KnowledgeGraph,
+    ) -> KnowledgeGraph:
+
+        graph = GraphUtils.remove_duplicate_nodes(
+            graph
+        )
+
+        graph = GraphUtils.remove_duplicate_edges(
+            graph
+        )
+
+        return graph

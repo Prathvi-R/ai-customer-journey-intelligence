@@ -16,6 +16,10 @@ class EmbeddingChunk(BaseData):
 
     content: str
 
+    embedding: list[float] = Field(
+        default_factory=list
+    )
+
     metadata: dict = Field(
         default_factory=dict
     )
@@ -24,7 +28,7 @@ class EmbeddingChunk(BaseData):
 class EmbeddingData(BaseData):
     """
     Collection of chunks ready
-    for embedding generation.
+    for semantic search.
     """
 
     chunks: list[EmbeddingChunk] = Field(

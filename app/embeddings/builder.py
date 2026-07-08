@@ -1,4 +1,4 @@
-from app.embeddings.chunking import ChunkingService
+from app.embeddings.chunker import ChunkingService
 from app.models.embedding import (
     EmbeddingChunk,
     EmbeddingData,
