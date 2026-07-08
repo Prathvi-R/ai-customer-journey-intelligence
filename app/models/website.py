@@ -1,51 +1,45 @@
 from pydantic import Field
 
 from app.models.base import BaseData
+from app.models.brand import BrandData
+from app.models.competitor import CompetitorInsight
 from app.models.contact import ContactData
+from app.models.funnel import FunnelData
 from app.models.journey import CustomerJourney
 from app.models.navigation import NavigationGraph
 from app.models.page import PageData
-from app.models.cta import CTACollection
+from app.models.pain_points import PainPointData
+from app.models.persona import PersonaData
+from app.models.project import ProjectCatalog
+from app.models.trust import TrustData
 
 
 class WebsiteData(BaseData):
-    """
-    Represents the complete knowledge extracted
-    from a website.
-    """
-
-    # --------------------------------------------------
-    # Identity
-    # --------------------------------------------------
 
     base_url: str
 
     domain: str
 
-    # --------------------------------------------------
-    # Pages
-    # --------------------------------------------------
+    pages: list[PageData] = Field(default_factory=list)
 
-    pages: list[PageData] = Field(
-        default_factory=list
-    )
+    contacts: ContactData = Field(default_factory=ContactData)
 
-    # --------------------------------------------------
-    # Website-Level Intelligence
-    # --------------------------------------------------
+    journey: CustomerJourney = Field(default_factory=CustomerJourney)
 
-    contacts: ContactData = Field(
-        default_factory=ContactData
-    )
+    navigation: NavigationGraph = Field(default_factory=NavigationGraph)
 
-    journey: CustomerJourney = Field(
-        default_factory=CustomerJourney
-    )
+    trust: TrustData = Field(default_factory=TrustData)
 
-    navigation: NavigationGraph = Field(
-        default_factory=NavigationGraph
-    )
+    projects: ProjectCatalog = Field(default_factory=ProjectCatalog)
 
-    cta: CTACollection = Field(
-        default_factory=CTACollection
+    personas: PersonaData = Field(default_factory=PersonaData)
+
+    pain_points: PainPointData = Field(default_factory=PainPointData)
+
+    funnel: FunnelData = Field(default_factory=FunnelData)
+
+    brand: BrandData = Field(default_factory=BrandData)
+
+    competitors: CompetitorInsight = Field(
+        default_factory=CompetitorInsight
     )
