@@ -6,7 +6,6 @@ from app.models.crawl import CrawlResult
 from app.models.enums import CrawlStatus
 from app.models.website import WebsiteData
 from app.services.browser import BrowserService
-from app.analyzers.page_classifier import PageClassifier
 from app.services.extractor import ExtractionService
 from app.services.url import URLService
 from app.utils.logger import logger
@@ -19,8 +18,12 @@ class WebsiteCollector:
     Responsibilities:
     - Crawl internal pages
     - Extract structured page data
-    - Classify pages
     - Build WebsiteData
+
+    Note:
+    This class DOES NOT perform any analysis.
+    All enrichment (classification, navigation, trust,
+    customer journey, etc.) happens inside WebsiteAnalyzer.
     """
 
     def __init__(
@@ -78,11 +81,12 @@ class WebsiteCollector:
                         current_url,
                     )
 
-                    page_data = await ExtractionService.extract(page)
+                    # -------------------------
+                    # Extract page
+                    # -------------------------
 
-                    # Page classification
-                    page_data.page_type = PageClassifier.classify(
-                    page_data
+                    page_data = await ExtractionService.extract(
+                        page
                     )
 
                     website.pages.append(page_data)
@@ -92,6 +96,10 @@ class WebsiteCollector:
                     logger.info(
                         f"Extracted {len(page_data.internal_links)} links from {current_url}"
                     )
+
+                    # -------------------------
+                    # Discover new pages
+                    # -------------------------
 
                     for href in page_data.internal_links:
 
@@ -142,11 +150,17 @@ class WebsiteCollector:
                 + len(self.state.queue)
             )
 
-            crawl_result.pages_crawled = len(self.state.visited)
+            crawl_result.pages_crawled = len(
+                self.state.visited
+            )
 
-            crawl_result.pages_failed = len(self.state.failed)
+            crawl_result.pages_failed = len(
+                self.state.failed
+            )
 
-            crawl_result.visited_urls = sorted(self.state.visited)
+            crawl_result.visited_urls = sorted(
+                self.state.visited
+            )
 
             crawl_result.failed_urls = self.state.failed
 

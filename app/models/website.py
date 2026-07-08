@@ -2,44 +2,94 @@ from pydantic import Field
 
 from app.models.base import BaseData
 from app.models.brand import BrandData
-from app.models.competitor import CompetitorInsight
+from app.models.competitor import CompetitorData
 from app.models.contact import ContactData
+from app.models.embedding import EmbeddingData
 from app.models.funnel import FunnelData
+from app.models.graph import KnowledgeGraph
 from app.models.journey import CustomerJourney
 from app.models.navigation import NavigationGraph
 from app.models.page import PageData
-from app.models.pain_points import PainPointData
+from app.models.pain_point import PainPointData
 from app.models.persona import PersonaData
 from app.models.project import ProjectCatalog
 from app.models.trust import TrustData
+from app.models.cta import CTACollection
 
 
 class WebsiteData(BaseData):
+    """
+    Complete structured representation of a website.
+    """
+
+    # -----------------------------------------
+    # Identity
+    # -----------------------------------------
 
     base_url: str
 
     domain: str
 
-    pages: list[PageData] = Field(default_factory=list)
+    pages: list[PageData] = Field(
+        default_factory=list
+    )
 
-    contacts: ContactData = Field(default_factory=ContactData)
+    # -----------------------------------------
+    # Website Intelligence
+    # -----------------------------------------
 
-    journey: CustomerJourney = Field(default_factory=CustomerJourney)
+    contacts: ContactData = Field(
+        default_factory=ContactData
+    )
 
-    navigation: NavigationGraph = Field(default_factory=NavigationGraph)
+    navigation: NavigationGraph = Field(
+        default_factory=NavigationGraph
+    )
 
-    trust: TrustData = Field(default_factory=TrustData)
+    journey: CustomerJourney = Field(
+        default_factory=CustomerJourney
+    )
 
-    projects: ProjectCatalog = Field(default_factory=ProjectCatalog)
+    trust: TrustData = Field(
+        default_factory=TrustData
+    )
 
-    personas: PersonaData = Field(default_factory=PersonaData)
+    projects: ProjectCatalog = Field(
+        default_factory=ProjectCatalog
+    )
 
-    pain_points: PainPointData = Field(default_factory=PainPointData)
+    personas: PersonaData = Field(
+        default_factory=PersonaData
+    )
 
-    funnel: FunnelData = Field(default_factory=FunnelData)
+    pain_points: PainPointData = Field(
+        default_factory=PainPointData
+    )
 
-    brand: BrandData = Field(default_factory=BrandData)
+    funnel: FunnelData = Field(
+        default_factory=FunnelData
+    )
 
-    competitors: CompetitorInsight = Field(
-        default_factory=CompetitorInsight
+    brand: BrandData = Field(
+        default_factory=BrandData
+    )
+
+    competitors: CompetitorData = Field(
+        default_factory=CompetitorData
+    )
+
+    ctas: CTACollection = Field(
+        default_factory=CTACollection
+    )
+
+    # -----------------------------------------
+    # AI Layer
+    # -----------------------------------------
+
+    knowledge_graph: KnowledgeGraph = Field(
+        default_factory=KnowledgeGraph
+    )
+
+    embeddings: EmbeddingData = Field(
+        default_factory=EmbeddingData
     )

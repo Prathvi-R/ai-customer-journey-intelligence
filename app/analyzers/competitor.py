@@ -1,6 +1,6 @@
 from collections import Counter
 
-from app.models.competitor import CompetitorInsight
+from app.models.competitor import CompetitorData
 from app.models.website import WebsiteData
 
 
@@ -67,9 +67,9 @@ class CompetitorAnalyzer:
     @staticmethod
     def analyze(
         website: WebsiteData,
-    ) -> CompetitorInsight:
+    ) -> CompetitorData:
 
-        insight = CompetitorInsight()
+        insight = CompetitorData()
 
         insight.industry = website.brand.industry
 

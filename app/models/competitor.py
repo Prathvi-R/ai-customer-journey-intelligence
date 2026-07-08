@@ -3,7 +3,7 @@ from pydantic import Field
 from app.models.base import BaseData
 
 
-class CompetitorInsight(BaseData):
+class CompetitorData(BaseData):
     """
     Represents inferred competitive positioning.
     """

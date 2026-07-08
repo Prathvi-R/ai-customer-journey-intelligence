@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from app.models.pain_points import (
+from app.models.pain_point import (
     PainPoint,
     PainPointData,
 )
