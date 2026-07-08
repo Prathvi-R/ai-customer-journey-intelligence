@@ -9,4 +9,4 @@ class BaseAgent(ABC):
         self,
         question: str,
     ):
-        pass
+        ...

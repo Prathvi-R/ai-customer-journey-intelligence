@@ -1,9 +1,8 @@
 from app.agents.base import BaseAgent
+from app.agents.prompts.trust import SYSTEM_PROMPT
 
-from app.agents.prompts.persona import SYSTEM_PROMPT
 
-
-class PersonaAgent(BaseAgent):
+class TrustAgent(BaseAgent):
 
     def __init__(
         self,
@@ -13,18 +12,20 @@ class PersonaAgent(BaseAgent):
         self.retriever = retriever
         self.llm = llm
 
+    ###########################################################
+
     async def run(
         self,
-        question,
+        question: str,
     ):
 
         context = self.retriever.retrieve_context(
-            question,
-            top_k=6,
+            query=question,
+            top_k=8,
         )
 
         prompt = f"""
-Context
+Website Context
 
 {context}
 
@@ -34,6 +35,6 @@ Question
 """
 
         return await self.llm.generate(
-            SYSTEM_PROMPT,
-            prompt,
+            system_prompt=SYSTEM_PROMPT,
+            user_prompt=prompt,
         )

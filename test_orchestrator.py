@@ -5,15 +5,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from app.services.storage import StorageService
-
 from app.embeddings.builder import EmbeddingBuilder
 from app.embeddings.chroma_store import ChromaStore
 from app.embeddings.retrieval import Retriever
 
+from app.agents.planner import PlannerAgent
+from app.agents.orchestrator import Orchestrator
+
 from app.models.llm import TaskType
 from app.services.llm import LLMService
-
-from app.agents.orchestrator import AgentOrchestrator
 
 
 async def main():
@@ -22,18 +22,14 @@ async def main():
 
     website = storage.load_latest_website()
 
-    embedding_data = EmbeddingBuilder.build(
-        website
-    )
-
-    chunks = embedding_data.chunks
+    embedding_data = EmbeddingBuilder.build(website)
 
     run_dir = storage.latest_directory()
 
     store = ChromaStore()
 
     store.build(
-        chunks,
+        embedding_data.chunks,
         run_dir,
     )
 
@@ -43,20 +39,19 @@ async def main():
         TaskType.REASONING
     )
 
-    orchestrator = AgentOrchestrator(
+    planner = PlannerAgent(llm)
+
+    orchestrator = Orchestrator(
+        planner,
         retriever,
         llm,
     )
 
-    answer = await orchestrator.run(
-
-        "How can Shrreeji Sharan improve website conversion?"
-
+    report = await orchestrator.run(
+        "How can Shrreeji Sharan increase conversions on the homepage?"
     )
 
-    print()
-
-    print(answer)
+    print(report)
 
 
 asyncio.run(main())
