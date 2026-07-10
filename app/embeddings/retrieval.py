@@ -41,7 +41,7 @@ class Retriever:
     def retrieve_context(
         self,
         query: str,
-        top_k: int = 5,
+        top_k: int = 6,
     ) -> str:
 
         chunks = self.search(
@@ -49,20 +49,20 @@ class Retriever:
             top_k=top_k,
         )
 
-        if not chunks:
-            return "No relevant context found."
-
-        sections = []
+        context = []
 
         for chunk in chunks:
 
-            section = f"""
-Source: {chunk.source}
-Title: {chunk.title}
+            context.append(
+                f"""
+[{chunk.source.upper()}]
 
+Title:
+{chunk.title}
+
+Content:
 {chunk.content}
 """
+            )
 
-            sections.append(section.strip())
-
-        return "\n\n------------------------\n\n".join(sections)
+        return "\n".join(context)

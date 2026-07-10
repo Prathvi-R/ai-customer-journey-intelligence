@@ -4,25 +4,14 @@ from app.agents.prompts.seo import SYSTEM_PROMPT
 
 class SEOAgent(BaseAgent):
 
-    def __init__(
-        self,
-        retriever,
-        llm,
-    ):
-        self.retriever = retriever
+    def __init__(self, llm):
         self.llm = llm
-
-    ###########################################################
 
     async def run(
         self,
         question: str,
+        context: str,
     ):
-
-        context = self.retriever.retrieve_context(
-            query=question,
-            top_k=8,
-        )
 
         prompt = f"""
 Website Context

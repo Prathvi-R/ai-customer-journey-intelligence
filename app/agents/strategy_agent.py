@@ -4,16 +4,14 @@ from app.agents.prompts.strategy import SYSTEM_PROMPT
 
 class StrategyAgent(BaseAgent):
 
-    def __init__(self, retriever, llm):
-        self.retriever = retriever
+    def __init__(self, llm):
         self.llm = llm
 
-    async def run(self, question):
-
-        context = self.retriever.retrieve_context(
-            question,
-            top_k=10,
-        )
+    async def run(
+        self,
+        question: str,
+        context: str,
+    ):
 
         prompt = f"""
 Website

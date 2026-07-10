@@ -1,5 +1,4 @@
 from app.agents.base import BaseAgent
-
 from app.agents.prompts.persona import SYSTEM_PROMPT
 
 
@@ -7,21 +6,18 @@ class PersonaAgent(BaseAgent):
 
     def __init__(
         self,
-        retriever,
         llm,
     ):
-        self.retriever = retriever
+
         self.llm = llm
+
+    ###########################################################
 
     async def run(
         self,
-        question,
+        question: str,
+        context: str,
     ):
-
-        context = self.retriever.retrieve_context(
-            question,
-            top_k=6,
-        )
 
         prompt = f"""
 Context
@@ -34,6 +30,6 @@ Question
 """
 
         return await self.llm.generate(
-            SYSTEM_PROMPT,
-            prompt,
+            system_prompt=SYSTEM_PROMPT,
+            user_prompt=prompt,
         )
