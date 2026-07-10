@@ -9,78 +9,117 @@ from app.agents.strategy_agent import StrategyAgent
 from app.agents.trust_agent import TrustAgent
 from app.agents.ux_agent import UXAgent
 
+from app.models.report import AgentResult
+
 
 class Orchestrator:
 
-    AGENT_REGISTRY = {
+    AGENTS = {
+
         "PersonaAgent": PersonaAgent,
+
         "CopyAgent": CopyAgent,
+
         "SEOAgent": SEOAgent,
+
         "TrustAgent": TrustAgent,
+
         "JourneyAgent": JourneyAgent,
+
         "UXAgent": UXAgent,
+
         "StrategyAgent": StrategyAgent,
+
     }
 
-    ############################################################
+    ##########################################################
 
     def __init__(
+
         self,
+
         planner,
+
         retriever,
+
         llm,
+
     ):
 
         self.planner = planner
+
         self.retriever = retriever
+
         self.llm = llm
 
-    ############################################################
+    ##########################################################
 
     async def run(
-        self,
-        question: str,
-    ):
 
-        # Step 1: Planner chooses agents
+        self,
+
+        question,
+
+    ):
 
         plan = await self.planner.run(question)
 
-        # Step 2: Retrieve context ONCE
-
         context = self.retriever.retrieve_context(
-            query=question,
-            top_k=8,
-        )
 
-        # Step 3: Run selected agents
+            question,
+
+            top_k=10,
+
+        )
 
         tasks = []
 
-        for agent_name in plan.agents:
+        names = []
 
-            agent_cls = self.AGENT_REGISTRY.get(agent_name)
+        for name in plan.agents:
 
-            if agent_cls is None:
-                print(f"Unknown agent: {agent_name}")
-                continue
-
-            agent = agent_cls(self.llm)
+            agent = self.AGENTS[name](self.llm)
 
             tasks.append(
+
                 agent.run(
+
                     question,
+
                     context,
+
                 )
+
             )
 
-        outputs = await asyncio.gather(*tasks)
+            names.append(name)
 
-        # Step 4: Merge results
+        answers = await asyncio.gather(*tasks)
 
-        report_agent = ReportAgent(self.llm)
+        reports = []
 
-        return await report_agent.run(
+        for name, answer in zip(names, answers):
+
+            reports.append(
+
+                AgentResult(
+
+                    agent=name,
+
+                    report=answer,
+
+                )
+
+            )
+
+        return await ReportAgent(
+
+            self.llm,
+
+        ).run(
+
             question,
-            outputs,
+
+            reports,
+
         )

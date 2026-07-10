@@ -38,6 +38,6 @@ Question
 """
 
         return await self.llm.generate(
-            SYSTEM_PROMPT,
-            prompt,
+            system_prompt=SYSTEM_PROMPT,
+            user_prompt=prompt,
         )

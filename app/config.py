@@ -1,9 +1,27 @@
-HEADLESS = True
+QUESTIONS = [
 
-MAX_PAGES = 10
+    "Who is the ideal customer?",
 
-REQUEST_TIMEOUT = 60000
+    "Improve homepage copy.",
 
-SCREENSHOT_WIDTH = 1440
+    "How can SEO be improved?",
 
-SCREENSHOT_HEIGHT = 900
+    "Increase trust on homepage.",
+
+    "How should the website grow over the next year?",
+
+    "Why are users leaving the website?",
+
+]
+
+TOP_K = 8
+
+REPORT_FORMATS = [
+
+    "markdown",
+
+    "html",
+
+    "pdf",
+
+]

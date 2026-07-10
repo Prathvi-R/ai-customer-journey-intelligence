@@ -14,9 +14,12 @@ from app.agents.orchestrator import Orchestrator
 
 from app.models.llm import TaskType
 from app.services.llm import LLMService
+from app.services.report import ReportService
 
 
 async def main():
+
+    question = "Who is the ideal customer?"
 
     storage = StorageService()
 
@@ -47,8 +50,21 @@ async def main():
         llm,
     )
 
-    report = await orchestrator.run(
-        "How can Shrreeji Sharan increase conversions on the homepage?"
+    report = await orchestrator.run(question)
+
+    ReportService.save_markdown(
+        report,
+        run_dir,
+    )
+
+    ReportService.save_html(
+        report,
+        run_dir,
+    )
+
+    ReportService.save_pdf(
+        report,
+        run_dir,
     )
 
     print(report)

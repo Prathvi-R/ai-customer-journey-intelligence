@@ -1,4 +1,9 @@
+from __future__ import annotations
+
+import json
 import traceback
+
+from pydantic import ValidationError
 
 from app.models.llm import (
     LLMModel,
@@ -193,9 +198,7 @@ class LLMService:
 
             try:
 
-                print(
-                    f"Trying {provider.value} ({model})..."
-                )
+                print(f"Trying {provider.value} ({model})...")
 
                 client = LLMService(
                     provider=provider,
@@ -208,9 +211,7 @@ class LLMService:
                     temperature,
                 )
 
-                print(
-                    f"Using {provider.value}"
-                )
+                print(f"Using {provider.value}")
 
                 return answer
 
@@ -218,19 +219,100 @@ class LLMService:
 
                 last_error = e
 
-                print(
-                    f"{provider.value} failed:"
-                )
+                print(f"{provider.value} failed")
 
                 print(e)
 
                 traceback.print_exc()
 
-                continue
-
         raise RuntimeError(
             f"All providers failed.\n\nLast error:\n{last_error}"
         )
+
+    ##################################################################
+
+    async def generate_json(
+        self,
+        system_prompt: str,
+        user_prompt: str,
+        response_model,
+        temperature: float = 0.2,
+    ):
+
+        schema = json.dumps(
+            response_model.model_json_schema(),
+            indent=2,
+        )
+
+        prompt = f"""
+Return ONLY valid JSON.
+
+Do not use markdown.
+
+Do not explain anything.
+
+The JSON MUST follow this schema.
+
+{schema}
+
+----------------------
+
+{user_prompt}
+"""
+
+        response = await self.generate(
+            system_prompt,
+            prompt,
+            temperature,
+        )
+
+        return self.parse_json(
+            response,
+            response_model,
+        )
+
+    ##################################################################
+
+    @staticmethod
+    def parse_json(
+        response: str,
+        response_model,
+    ):
+
+        response = response.strip()
+
+        if response.startswith("```json"):
+            response = response[7:]
+
+        if response.startswith("```"):
+            response = response[3:]
+
+        if response.endswith("```"):
+            response = response[:-3]
+
+        response = response.strip()
+
+        try:
+
+            return response_model.model_validate_json(
+                response
+            )
+
+        except ValidationError as e:
+
+            print(response)
+
+            raise RuntimeError(
+                f"Pydantic validation failed\n\n{e}"
+            )
+
+        except json.JSONDecodeError as e:
+
+            print(response)
+
+            raise RuntimeError(
+                f"JSON parsing failed\n\n{e}"
+            )
 
     ##################################################################
 

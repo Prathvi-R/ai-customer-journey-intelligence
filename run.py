@@ -1,6 +1,6 @@
 import asyncio
 
-from app.pipelines.website_pipeline import WebsitePipeline
+from app.pipeline.website_pipeline import WebsitePipeline
 
 
 async def main():

@@ -7,32 +7,49 @@ class ReportAgent:
 
         self.llm = llm
 
+    ##########################################################
+
     async def run(
         self,
         question,
-        outputs,
+        reports,
     ):
 
-        joined = "\n\n".join(outputs)
+        sections = []
+
+        for result in reports:
+
+            sections.append(
+
+                f"""
+# {result.agent}
+
+{result.report}
+"""
+
+            )
+
+        joined = "\n\n".join(sections)
 
         prompt = f"""
 User Question
 
 {question}
 
-Agent Reports
+Specialist Reports
 
 {joined}
 
-Create one unified report.
+Create ONE final consulting report.
 
-Do not repeat information.
+Requirements
 
-Group similar findings.
-
-Prioritize highest-impact recommendations.
-
-Return markdown.
+- Merge overlapping findings
+- Remove duplicates
+- Prioritize highest-impact issues
+- Use markdown headings
+- Produce an executive summary
+- End with an action plan
 """
 
         return await self.llm.generate(

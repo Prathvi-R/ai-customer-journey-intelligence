@@ -22,19 +22,13 @@ Act as a Product Strategy Consultant.
 
 Evaluate:
 
-Business positioning
-
-Competitive differentiation
-
-ICP
-
-Messaging
-
-Growth opportunities
-
-Pricing communication
-
-Trust
+- Business positioning
+- Competitive differentiation
+- ICP
+- Messaging
+- Growth opportunities
+- Pricing communication
+- Trust
 
 Question
 
@@ -42,6 +36,6 @@ Question
 """
 
         return await self.llm.generate(
-            SYSTEM_PROMPT,
-            prompt,
+            system_prompt=SYSTEM_PROMPT,
+            user_prompt=prompt,
         )

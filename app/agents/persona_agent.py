@@ -4,14 +4,8 @@ from app.agents.prompts.persona import SYSTEM_PROMPT
 
 class PersonaAgent(BaseAgent):
 
-    def __init__(
-        self,
-        llm,
-    ):
-
+    def __init__(self, llm):
         self.llm = llm
-
-    ###########################################################
 
     async def run(
         self,
@@ -20,7 +14,7 @@ class PersonaAgent(BaseAgent):
     ):
 
         prompt = f"""
-Context
+Website Context
 
 {context}
 
